@@ -1,0 +1,17 @@
+{% extends "blogsite/index.html" %}
+{% block start %}
+    <center><h1>Search results</h1></center>
+    {% if user.is_authenticated %}
+        {% for title,list in fetch_dict.items %}
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ title }}</h5>
+                <p class="card-text"> {{ list.0 }}</p>
+
+              </div>
+              <img class="card-img-bottom" src="{{ list.1 }}" alt="Card image cap"  width="300" height="400">
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
